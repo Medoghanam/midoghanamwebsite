@@ -1,13 +1,195 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Start</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="photos/webicon.jpg"/>
+    <title>موقعي الشخصي</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            margin-left: auto;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        #name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .content {
+            padding-top: 80px;
+        }
+
+        #home {
+            background: #007BFF;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        #home .intro h1 {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        #home .intro p {
+            font-size: 20px;
+        }
+
+        #about, #projects, #contact {
+            padding: 50px;
+            text-align: center;
+        }
+
+        #projects {
+            padding: 50px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        #projects h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .projects-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .project {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .project img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .project h3 {
+            font-size: 24px;
+            margin-top: 15px;
+        }
+
+        .project p {
+            font-size: 16px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
 </head>
-
 <body>
-  <h1>Free Start</h1>
-</body>
+    <header>
+        <div id="name">Mohammed Ghanam</div>
+        <nav>
+            <ul>
+                <li><a href="#about">عنّي</a></li>
+                <li><a href="#projects">المشاريع</a></li>
+                <li><a href="#contact">التواصل</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <div class="content">
+        <section id="home">
+            <div class="intro">
+                <h1>مرحباً، أنا [اسمك]</h1>
+                <p>مطور ويب مبدع.</p>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>عنّي</h2>
+            <p>أنا [اسمك]، مطور ويب مبدع بخبرة في استخدام HTML و CSS و JavaScript. أسعى لبناء تطبيقات ومواقع مميزة.</p>
+        </section>
+
+        <section id="projects">
+            <h2>المشاريع</h2>
+            <div class="projects-container">
+                <div class="project">
+                    <img src="https://via.placeholder.com/300" alt="مشروع 1">
+                    <h3>مشروع 1</h3>
+                    <p>وصف المشروع الأول. هذا مشروع تم تطويره باستخدام [أدوات/تكنولوجيا معينة].</p>
+                </div>
+                <div class="project">
+                    <img src="https://via.placeholder.com/300" alt="مشروع 2">
+                    <h3>مشروع 2</h3>
+                    <p>وصف المشروع الثاني. استخدمت فيه تقنيات مثل HTML و CSS لتصميم واجهة المستخدم.</p>
+                </div>
+                <div class="project">
+                    <img src="https://via.placeholder.com/300" alt="مشروع 3">
+                    <h3>مشروع 3</h3>
+                    <p>وصف المشروع الثالث. هذا مشروع مبتكر باستخدام JavaScript و React.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>التواصل</h2>
+            <p>يمكنك التواصل معي عبر البريد الإلكتروني: <a href="mailto:example@example.com">example@example.com</a></p>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 [اسمك]. جميع الحقوق محفوظة.</p>
+        </footer>
+    </div>
+</body>
 </html>
