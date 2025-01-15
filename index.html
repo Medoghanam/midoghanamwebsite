@@ -18,12 +18,13 @@
       background-image: url('accets/img/bg_image.jpeg');
       background-size: cover;
       background-position: center;
-      display:; flex;
+      display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
       min-height: 100vh;
       padding-top: 70px;
+      width: 100%;
     }
     header {
       background: rgba(0, 0, 0, 0.6);
@@ -199,13 +200,23 @@
     #telegram_button:active {
       transform: translate(20px, -20px);
       border: 2px solid blue;
-}
+    }
     #facebook_button{
       border: solid 2px blue;
     }
     #facebook_button:active{
-      transform: translateY(20px);
+      transform: translate(-20px, 20px);
       border: 2px solid blue;
+    }
+    #email_button{
+      border-top: 2px solid red;
+      border-left: 2px solid blue;
+      border-right: 2px solid green;
+      border-bottom: 2px solid;
+    }
+    #email_button:active{
+      transform: translate(20px, 20px);
+      border: 2px solid red;
     }
     a{text-decoration: none;}
     .azkaralmoslem_buttons{
@@ -216,18 +227,73 @@
     .azkaralmoslem_button {
       background: deepskyblue;
       border: deepskyblue solid 2px;
-      
+    }
+    .azkaralmoslem_button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #contact_me {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    #contactForm {
+      background-color: #1c1c1c;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      max-width: 400px;
+      width: 100%;  
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #ccc;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #444;
+      border-radius: 4px;
+      background-color: #333;
+      color: #fff;
+    }
+    input[type="text"]::placeholder,
+    input[type="email"]::placeholder,
+    input[type="number"]::placeholder,
+    textarea::placeholder {
+      color: #aaa;
+    }
+    textarea {
+      resize: none;
+    }
+    .azkaralmoslem_button {
+      background-color: #007bff;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
     }
     .azkaralmoslem_button:hover {
-      background-color: #311B6B;
-      transform: translateY(-2px);
-    }
-    .azkaralmoslem_button:active {
-      transform: translateY(0);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    .azkaralmoslem_button:focus {
-      outline: none;
+      background-color: #0056b3;
     }
     footer {
       background: #222;
@@ -238,11 +304,6 @@
       text-align: center;
     }
   </style>
-  <script>
-    function open_azkaralmoslem(){
-      window.opener('https://t.me/azkaralmoslembot?start=start')
-    }
-  </script>
 </head>
 <body>
   <header class="header">
@@ -340,11 +401,66 @@
           <span>Facebook</span>
         </a>
       </button>
+      <button class="contact-button" id="email_button">
+        <a href="mail.to: mohammedghanamprogrammer@hotmail.com" target="_blank">
+          <img src="accets/img/gmail.png" alt="Gmail"/>
+          <br>
+          <span>E-mail</span>
+        </a>
+      </button>
     </div>
   </div>
+  <div id="contact_me">
+    <h3>Send Message</h3>  
+  <form id="contactForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" rows="1" required>
 
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="whatsapp">WhatsApp Number:</label>
+    <input type="number" id="whatsapp" name="whatsapp" required>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" required></textarea>
+
+    <button type="submit" class="azkaralmoslem_button">Submit</button>
+  </form>
+</div>
   <footer>
-    <p>All rights reserved Mohammed Ghanam &copy;</p>
+    <p>All rights reserved for <b>Mohammed Ghanam</b> &copy;</p>
   </footer>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var name = document.getElementById('name').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var whatsapp = document.getElementById('whatsapp').value.trim();
+      var messageContent = document.getElementById('message').value.trim();
+      if (!name || !email || !whatsapp || !messageContent) {
+        alert('Please fill out all fields.');
+        return;
+      }
+      var message = `Name: ${name}\nEmail: ${email}\nWhatsApp Number: ${whatsapp}\nMessage: ${messageContent}`;
+      var telegramToken = '7573060217:AAE3HnTcBAwQ1X5sPoKrGg6r2WwLHv2LPe4';
+      var chatId = '6446705072';
+      var url = `https://api.telegram.org/bot${telegramToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          if (data.ok) {
+            alert('Message sent successfully!');
+            document.getElementById('contactForm').reset();
+          } else {
+            alert('Error sending message: ' + data.description);
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Error sending message: ' + error.message);
+        });
+    });
+  </script>
 </body>
 </html>
