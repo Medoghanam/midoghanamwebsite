@@ -15,10 +15,10 @@
     body {
       background-color: #000;
       color: white;
-      background-image: url('accests/img/bg_image.jpeg');
+      background-image: url('accets/img/bg_image.jpeg');
       background-size: cover;
       background-position: center;
-      display: flex;
+      display:; flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
@@ -35,7 +35,12 @@
       z-index: 1;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
+    }
+    .header {
+      display: flex;
+      width: 100%;
+      justify-content: center;
     }
     header img {
       margin-right: 10px;
@@ -85,7 +90,7 @@
     }
     .language button {
       background: transparent;
-      border: 2px solid blue;
+      border: 2px solid #3A1E87;
       border-radius: 8px;
       padding: 10px;
       cursor: pointer;
@@ -109,7 +114,7 @@
     }
     .telegram_bot_button:focus {
       transform: translate(5px, -5px);
-      border: 2px solid red;
+      border: 2px solid deepskyblue;
     }
     .html_button:focus {
       transform: translate(-5px, 5px);
@@ -117,7 +122,7 @@
     }
     .css_button:focus {
       transform: translate(5px, 5px);
-      border: 2px solid red;
+      border: 2px solid blue;
     }
     .language button:focus {
       outline: none;
@@ -125,9 +130,35 @@
     span {
       color: white;
     }
+    .azkaralmoslem {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 100px;
+    }
+    .azkaralmoslem img {
+      width: 50%;
+      max-width: 300px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .azkaralmoslem .description {
+      width: 50%;
+      color: #fff;
+      text-align: left;
+    }
+    .azkaralmoslem h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .azkaralmoslem p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
     #contact {
       padding: 50px;
-      background: rgba(0, 0, 0, 0.7);
       border-radius: 8px;
       margin-bottom: 20px;
     }
@@ -139,7 +170,6 @@
     }
     .contact-button {
       background: transparent;
-      border: 2px solid green;
       border-radius: 8px;
       padding: 10px;
       cursor: pointer;
@@ -156,9 +186,48 @@
       width: 70px;
       height: 60px;
     }
-    .contact-button:active {
-      transform: translateY(10px);
-      border-color: darkgreen;
+    #whatsapp_button{
+      border: solid 2px seagreen;
+    }
+    #whatsapp_button:active{
+      transform: translate(-20px, -20px);
+      border: 2px solid blue;
+    }
+    #telegram_button{
+      border: solid 2px deepskyblue;
+    }
+    #telegram_button:active {
+      transform: translate(20px, -20px);
+      border: 2px solid blue;
+}
+    #facebook_button{
+      border: solid 2px blue;
+    }
+    #facebook_button:active{
+      transform: translateY(20px);
+      border: 2px solid blue;
+    }
+    a{text-decoration: none;}
+    .azkaralmoslem_buttons{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .azkaralmoslem_button {
+      background: deepskyblue;
+      border: deepskyblue solid 2px;
+      
+    }
+    .azkaralmoslem_button:hover {
+      background-color: #311B6B;
+      transform: translateY(-2px);
+    }
+    .azkaralmoslem_button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .azkaralmoslem_button:focus {
+      outline: none;
     }
     footer {
       background: #222;
@@ -168,13 +237,15 @@
       bottom: 0;
       text-align: center;
     }
-    a{
-      text-decoration: none;
-    }
   </style>
+  <script>
+    function open_azkaralmoslem(){
+      window.opener('https://t.me/azkaralmoslembot?start=start')
+    }
+  </script>
 </head>
 <body>
-  <header>
+  <header class="header">
     <img src="accets/img/webicon.jpg" alt="<M/>" width="40px">
     <nav>
       <ul>
@@ -184,10 +255,9 @@
       </ul>
     </nav>
   </header>
-
   <div class="content">
     <section id="home">
-      <h1>Welcome,</h1>
+      <h1 id="welcome">Welcome,</h1>
       <p>I'm <b>Mohamed Ahmed Ghanem</b>, a Telegram bot and website developer.</p>
     </section>
 
@@ -222,17 +292,40 @@
       </div>
     </section>
   </div>
-
+  <div id="projects">
+  <center>
+    <h2>Projects</h2>
+  </center>
+  <div class="azkaralmoslem">
+    <img src="accets/img/azkaralmoslem.png" alt="Azkar Almoslem Project">
+    <div class="description">
+      <h3>« أَذْكَارُ المُسْلِم »</h3>
+      <p>موقع « أَذْكَارُ المُسْلِم » هو أحد مشاريعي المتميزة، حيث يقدم للمستخدمين مجموعة شاملة من الأذكار اليومية مبوبة ومصنفة بشكل سهل ومبسط. يهدف المشروع إلى تعزيز روحانية المستخدم وتجديد نشاطه اليومي بفضل التذكير بأذكار الصباح والمساء، أذكار ما بعد الصلاة، وأذكار متنوعة تناسب كل الأوقات. يجعل المشروع من تذكر الأذكار والتزام الذكر أمرًا ميسرًا في متناول يدك.</p>
+      <br>
+      <div class="azkaralmoslem_buttons">
+        <button class="azkaralmoslem_button">
+          <a href="https://t.me/azkaralmoslembot?start=start" target="_blank" style="color: black;">فتح البوت</a>
+        </button>
+        <button class="azkaralmoslem_button">
+          <a href="https://azkaralmoslem.netlify.app" target="_blank" style="color: black;">فتح الموقع</a>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
   <div id="contact">
-    <h2>Contact</h2>
+    <center>
+      <h2>Contact</h2>
+    </center>
+    <br>
     <div class="contact">
-      <button class="contact-button">
+      <button class="contact-button" id="whatsapp_button">
         <a href="https://wa.me/201101023681" target="_blank">
           <img src="accets/img/whatsapp.png" alt="Whatsapp Icon">
           <span>Whatsapp</span>
         </a>
       </button>
-      <button class="contact-button">
+      <button class="contact-button" id="telegram_button">
         <a href="https://t.me/midoghanam?text=السلام%20عليكم%20ورحمة%20الله%20وبركاته" target="_blank">
           <img src="accets/img/telegram.png" alt="Telegram Image" />
           <span>Telegram</span>
@@ -241,8 +334,8 @@
     </div>
     <br>
     <div class="contact">
-      <button class="contact-button">
-        <a href="https://www.facebook.com/mido.ghanam2009?mibextid=ZbWKwL">
+      <button class="contact-button" id="facebook_button">
+        <a href="https://www.facebook.com/mido.ghanam2009?mibextid=ZbWKwL" target="_blank">
           <img src="accets/img/facebook.png" alt="Facebook Icon">
           <span>Facebook</span>
         </a>
