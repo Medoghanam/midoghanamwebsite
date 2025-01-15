@@ -1,5 +1,4 @@
-</body>
-</html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -24,7 +23,7 @@
       align-items: center;
       justify-content: flex-start;
       min-height: 100vh;
-      padding-top: 70px; /* Space to avoid content being hidden under header */
+      padding-top: 70px;
     }
     header {
       background: rgba(0, 0, 0, 0.6);
@@ -56,8 +55,8 @@
       max-width: 800px;
       display: flex;
       flex-direction: column;
-      align-items: center; /* Center the content horizontally */
-      justify-content: center; /* Center the content vertically */
+      align-items: center; 
+      justify-content: center;
       text-align: center;
     }
     #home {
@@ -76,8 +75,8 @@
     }
     .languages-container {
       display: flex;
-      justify-content: center; /* Center buttons horizontally */
-      align-items: center; /* Center buttons vertically */
+      justify-content: center;
+      align-items: center; 
       gap: 20px;
       flex-wrap: wrap;
     }
@@ -95,18 +94,65 @@
       flex-direction: column;
       align-items: center;
       gap: 10px;
-      transition: border-color 0.3s ease;
+      transition: border-color 0.3s ease, transform 0.3s ease;
     }
     .language button img {
       width: 70px;
       height: 60px;
     }
+    .python_button:focus {
+      transform: translateY(-10px);
+      border-top: 2px solid darkblue;
+      border-left: 2px solid darkblue;
+      border-bottom: 2px solid yellow;
+      border-right: 2px solid yellow;
+    }
+    .telegram_bot_button:focus {
+      transform: translateY(-10px);
+      border: 2px solid red;
+    }
+    .html_button:focus {
+      transform: translateY(10px);
+      border: 2px solid red;
+    }
+    .css_button:focus {
+      transform: translateY(10px);
+      border: 2px solid red;
+    }
     .language button:focus {
       outline: none;
-      border-color: red;
     }
     span {
       color: white;
+    }
+    #contact {
+      padding: 50px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .contact-button {
+      background: transparent;
+      border: 2px solid green;
+      border-radius: 8px;
+      padding: 10px;
+      cursor: pointer;
+      width: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+      text-decoration: none;
+      color: white;
+    }
+    .contact-button img {
+      width: 70px;
+      height: 60px;
+    }
+    .contact-button:active {
+      transform: translateY(-10px);
+      border-color: darkgreen;
     }
     footer {
       background: #222;
@@ -117,8 +163,15 @@
       text-align: center;
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelector('.contact-button').addEventListener('click', function() {
+        window.location.href = 'https://wa.me/201101023681';
+      });
+    });
+  </script>
 </head>
-<body>
+<body align="center">
   <header>
     <h3>Mohammed Ghanam</h3>
     <nav>
@@ -141,31 +194,43 @@
       <br>
       <div class="languages-container">
         <div class="language">
-          <button>
+          <button class="python_button">
             <img src="photos/python_image.png" alt="Python">
             <span>Python</span>
           </button>
         </div>
         <div class="language">
-          <button>
+          <button class="telegram_bot_button">
             <img src="photos/telegram_image.png" alt="Telegram Bots">
             <span>Telegram Bots</span>
           </button>
         </div>
         <div class="language">
-          <button>
+          <button class="html_button">
             <img src="photos/html_image.png" alt="HTML">
             <span>HTML</span>
           </button>
         </div>
         <div class="language">
-          <button>
+          <button class="css_button">
             <img src="photos/css_image.png" alt="CSS">
             <span>CSS</span>
           </button>
         </div>
       </div>
     </section>
+  </div>
+  
+  <div id="contact">
+    <h2>Contact</h2>
+    <div>
+      <div>
+        <button class="contact-button">
+          <img src="photos/whatsapp_image.png" alt="Whatsapp Icon">
+          <span>Whatsapp</span>
+        </button>
+      </div>
+    </div>
   </div>
 
   <footer>
