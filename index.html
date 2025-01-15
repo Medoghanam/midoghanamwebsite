@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="photos/webicon.jpg"/>
+  <link rel="icon" href="accests/img/webicon.jpg"/>
   <title>Mohammed Ghanam</title>
   <style>
     * {
@@ -15,7 +15,7 @@
     body {
       background-color: #000;
       color: white;
-      background-image: url('photos/bg_image.jpeg');
+      background-image: url('accests/img/bg_image.jpeg');
       background-size: cover;
       background-position: center;
       display: flex;
@@ -34,11 +34,11 @@
       top: 0;
       z-index: 1;
       display: flex;
-      align-items: center; /* تعديل المحاذاة */
-      justify-content: space-between; /* توزيع المساحة بالتساوي */
+      align-items: center;
+      justify-content: space-between;
     }
     header img {
-      margin-right: 10px; /* مسافة بين الصورة والقائمة */
+      margin-right: 10px;
     }
     header nav ul {
       list-style: none;
@@ -131,6 +131,12 @@
       border-radius: 8px;
       margin-bottom: 20px;
     }
+    .contact {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+    }
     .contact-button {
       background: transparent;
       border: 2px solid green;
@@ -151,7 +157,7 @@
       height: 60px;
     }
     .contact-button:active {
-      transform: translateY(-10px);
+      transform: translateY(10px);
       border-color: darkgreen;
     }
     footer {
@@ -162,12 +168,14 @@
       bottom: 0;
       text-align: center;
     }
-    a{text-decoration: none;}
+    a{
+      text-decoration: none;
+    }
   </style>
-  </head>
+</head>
 <body>
   <header>
-    <img src="photos/webicon.jpg" alt="<M/>" width="40px">
+    <img src="accests/img/webicon.jpg" alt="<M/>" width="40px">
     <nav>
       <ul>
         <li><a href="#projects">Projects</a></li>
@@ -189,43 +197,56 @@
       <div class="languages-container">
         <div class="language">
           <button class="python_button">
-            <img src="photos/python_image.png" alt="Python">
+            <img src="accests/img/python.png" alt="Python">
             <span>Python</span>
           </button>
         </div>
         <div class="language">
           <button class="telegram_bot_button">
-            <img src="photos/telegram_image.png" alt="Telegram Bots">
+            <img src="accests/img/telegram.png" alt="Telegram Bots">
             <span>Telegram Bots</span>
           </button>
         </div>
         <div class="language">
           <button class="html_button">
-            <img src="photos/html_image.png" alt="HTML">
+            <img src="accests/img/html.png" alt="HTML">
             <span>HTML</span>
           </button>
         </div>
         <div class="language">
           <button class="css_button">
-            <img src="photos/css_image.png" alt="CSS">
+            <img src="accests/img/css.png" alt="CSS">
             <span>CSS</span>
           </button>
         </div>
       </div>
     </section>
   </div>
-  
+
   <div id="contact">
     <h2>Contact</h2>
-    <div>
-      <div>
-        <button class="contact-button">
-          <a href="https://wa.me/201101023681" target="_blank">
-            <img src="photos/whatsapp_image.png" alt="Whatsapp Icon">
-            <span>Whatsapp</span>
-          </a>
-        </button>
-      </div>
+    <div class="contact">
+      <button class="contact-button">
+        <a href="https://wa.me/201101023681" target="_blank">
+          <img src="accests/img/whatsapp.png" alt="Whatsapp Icon">
+          <span>Whatsapp</span>
+        </a>
+      </button>
+      <button class="contact-button">
+        <a href="https://t.me/midoghanam?text=السلام%20عليكم%20ورحمة%20الله%20وبركاته" target="_blank">
+          <img src="accests/img/telegram.png" alt="Telegram Image" />
+          <span>Telegram</span>
+        </a>
+      </button>
+    </div>
+    <br>
+    <div class="contact">
+      <button class="contact-button">
+        <a href="https://www.facebook.com/mido.ghanam2009?mibextid=ZbWKwL">
+          <img src="accests/img/facebook.png" alt="Facebook Icon">
+          <span>Facebook</span>
+        </a>
+      </button>
     </div>
   </div>
 
