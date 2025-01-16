@@ -332,7 +332,44 @@
     textarea {
       resize: none;
     }
-    .floating_photo {
+    
+    h1 {margin: 20px 0; color: #444; text-align: center;}
+    .videos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      }
+      .video-card {
+        width: 300px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: center;
+      }
+      .video-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+      .video-card video { width: 100%; height: auto;}
+      .video-card span {
+        display: block;
+        padding: 10px;
+        color: #555;
+        font-size: 16px;
+        font-weight: bold;
+        border-top: 1px solid #ddd;
+      }
+      @media (max-width: 768px) {
+        .video-card {
+          width: 50%;
+          height: 80%;
+        }
+      }
+      .floating_photo {
       position: fixed;
       bottom: 50px;
       right: 5px;
@@ -488,6 +525,17 @@
       </a>
     </div>
   </div>
+  <br><br><br>
+  <h3>Video Edit</h3>
+  <div class="videos">
+    <div class="video-card">
+      <video controls id="arabic_song1" poster="accets/img/أبدا_لا_لن_نحيد.jpg">
+        <source src="accets/videos/أبدا_لا_لن_نحيد.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+      <span>Arabic song <br> أَبَدًا لا لن نحيد</span>
+    </div>
+  </div>
   <div id="contact_me">
     <h3>Send Message</h3>  
     <form id="contactForm">
@@ -520,7 +568,7 @@
       return;
     }
     
-    var message = `Name: ${name}\nEmail: ${email}\nWhatsApp Number: ${whatsapp}\nMessage: ${messageContent}`;
+    var message = `Name: ${name}\nEmail: ${email}\nWhatsApp Number:+${whatsapp}\nMessage: ${messageContent}`;
     var telegramToken = '7573060217:AAE3HnTcBAwQ1X5sPoKrGg6r2WwLHv2LPe4';
     var chatId = '6446705072';
     var url = `https://api.telegram.org/bot${telegramToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
@@ -549,6 +597,10 @@
       floatingPhoto.classList.add('clicked');
     }
   });
+  document.addEventListener('DOMContentLoaded', function() {
+      var video = document.getElementById('arabic_song1');
+      video.preload = 'none';
+    });
 </script>
 </body>
 </html>
