@@ -120,10 +120,12 @@
     .html_button:focus {
       transform: translate(-5px, 5px);
       border: 2px solid red;
+      background: red;
     }
     .css_button:focus {
       transform: translate(5px, 5px);
       border: 2px solid blue;
+      background: blue;
     }
     .language button:focus {
       outline: none;
@@ -193,6 +195,7 @@
     #whatsapp_button:active{
       transform: translate(-20px, -20px);
       border: 2px solid blue;
+      background: green;
     }
     #telegram_button{
       border: solid 2px deepskyblue;
@@ -200,6 +203,7 @@
     #telegram_button:active {
       transform: translate(20px, -20px);
       border: 2px solid blue;
+      background: deepskyblue;
     }
     #facebook_button{
       border: solid 2px blue;
@@ -207,6 +211,7 @@
     #facebook_button:active{
       transform: translate(-20px, 20px);
       border: 2px solid blue;
+      background: blue;
     }
     #email_button{
       border-top: 2px solid red;
@@ -254,6 +259,10 @@
       background: #262A5B;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .channels{
+      display: flex;
+      background: none;
     }
     .azkaralmoslemchannel {
       display: flex;
@@ -326,22 +335,33 @@
     .floating_photo {
       position: fixed;
       bottom: 50px;
-      right: 20px;
+      right: 5px;
       width: 50px;
       height: 50px;
-      background-image: url('accets/img/my_photo.jpg');
+      background-image: url('./accets/img/my_photo.jpg');
       background-size: cover;
       background-position: center;
       border-radius: 50%;
       cursor: pointer;
-      transition: width 0.3s ease, height 0.4s ease;
+      transition: all 0.5s ease;
       z-index: 1000;
+      animation: randomMove 10s infinite alternate ease-in-out;
     }
-    .floating_photo:hover, .floating_photo:active{
-      transform: translate(-50%,-50%) scale(1.5);
-      width: 50%;
-      height: 50%;
+    .floating_photo.clicked {
+      width: 200px;
+      height: 200px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       border-radius: 50%;
+      z-index: 10000;
+    }
+    @keyframes randomMove {
+      0% {transform: translate(10px, 10px);}
+      25% {transform: translate(-100px, 50px);}
+      50% {transform: translate(80px, -100px);}
+      75% {transform: translate(-50px, -50px);}
+    100% {transform: translate(10px, 10px);}
     }
     footer {
       background: #222;
@@ -487,35 +507,48 @@
     <p>All rights reserved for <b>Mohammed Ghanam</b> &copy;</p>
   </footer>
   <script>
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      var name = document.getElementById('name').value.trim();
-      var email = document.getElementById('email').value.trim();
-      var whatsapp = document.getElementById('whatsapp').value.trim();
-      var messageContent = document.getElementById('message').value.trim();
-      if (!name || !email || !whatsapp || !messageContent) {
-        alert('Please fill out all fields.');
-        return;
-      }
-      var message = `Name: ${name}\nEmail: ${email}\nWhatsApp Number: ${whatsapp}\nMessage: ${messageContent}`;
-      var telegramToken = '7573060217:AAE3HnTcBAwQ1X5sPoKrGg6r2WwLHv2LPe4';
-      var chatId = '6446705072';
-      var url = `https://api.telegram.org/bot${telegramToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
-      fetch(url)
-        .then(response => response.json())
-        .then(data => {
-          if (data.ok) {
-            alert('Message sent successfully!');
-            document.getElementById('contactForm').reset();
-          } else {
-            alert('Error sending message: ' + data.description);
-          }
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          alert('Error sending message: ' + error.message);
-        });
-    });
-  </script>
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    var name = document.getElementById('name').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var whatsapp = document.getElementById('whatsapp').value.trim();
+    var messageContent = document.getElementById('message').value.trim();
+    
+    if (!name || !email || !whatsapp || !messageContent) {
+      alert('Please fill out all fields.');
+      return;
+    }
+    
+    var message = `Name: ${name}\nEmail: ${email}\nWhatsApp Number: ${whatsapp}\nMessage: ${messageContent}`;
+    var telegramToken = '7573060217:AAE3HnTcBAwQ1X5sPoKrGg6r2WwLHv2LPe4';
+    var chatId = '6446705072';
+    var url = `https://api.telegram.org/bot${telegramToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+    
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        if (data.ok) {
+          alert('Message sent successfully!');
+          document.getElementById('contactForm').reset();
+        } else {
+          alert('Error sending message: ' + data.description);
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Error sending message: ' + error.message);
+      });
+  });
+  const floatingPhoto = document.querySelector('.floating_photo');
+
+  floatingPhoto.addEventListener('click', () => {
+    if (floatingPhoto.classList.contains('clicked')) {
+      floatingPhoto.classList.remove('clicked');
+    } else {
+      floatingPhoto.classList.add('clicked');
+    }
+  });
+</script>
 </body>
 </html>
