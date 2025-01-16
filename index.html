@@ -169,7 +169,7 @@
       justify-content: center;
       align-items: center;
     }
-    .contact-button {
+    .contact-button{
       background: transparent;
       border-radius: 8px;
       padding: 10px;
@@ -244,6 +244,44 @@
     button:hover {
       background-color: #0056b3;
     }
+    .channels div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 20px;
+      background: #262A5B;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .azkaralmoslemchannel {
+      display: flex;
+      border: 2px solid deepskyblue;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .azkaralmoslemchannel a {
+      text-decoration: none;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+    .azkaralmoslemchannel a:hover {transform: scale(1.1);}
+    .azkaralmoslemchannel img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .azkaralmoslemchannel span {
+      font-size: 16px;
+      font-weight: bold;
+      color: #007BFF;
+    }
     #contact_me {
       display: flex;
       justify-content: center;
@@ -303,6 +341,7 @@
       transform: translate(-50%,-50%) scale(1.5);
       width: 50%;
       height: 50%;
+      border-radius: 50%;
     }
     footer {
       background: #222;
@@ -417,6 +456,16 @@
           <span>E-mail</span>
         </a>
       </button>
+    </div>
+  </div>
+  <h3>Channels</h3>
+  <br>
+  <div class="channels">
+    <div class="azkaralmoslemchannel">
+      <a href="https://t.me/azkar_net" target="_blank">
+        <img src="accets/img/azkaralmoslem.png" alt="Azkar Almoslem" />
+        <span>« أَذْكَارُ المُسْلِم »</span>
+      </a>
     </div>
   </div>
   <div id="contact_me">
