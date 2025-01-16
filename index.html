@@ -340,36 +340,61 @@
       justify-content: center;
       gap: 20px;
       padding: 20px;
-      }
+    }
+    .video-card {
+      width: 300px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+    }
+    .video-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    .video-card video { width: 100%; height: auto;}
+    .video-card span {
+      display: block;
+      padding: 10px;
+      color: #555;
+      font-size: 16px;
+      font-weight: bold;
+      border-top: 1px solid #ddd;
+    }
+    @media (max-width: 768px) {
       .video-card {
-        width: 300px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s, box-shadow 0.3s;
-        text-align: center;
+        width: 50%;
+        height: 80%;
       }
-      .video-card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-      }
-      .video-card video { width: 100%; height: auto;}
-      .video-card span {
-        display: block;
-        padding: 10px;
-        color: #555;
-        font-size: 16px;
-        font-weight: bold;
-        border-top: 1px solid #ddd;
-      }
-      @media (max-width: 768px) {
-        .video-card {
-          width: 50%;
-          height: 80%;
-        }
-      }
-      .floating_photo {
+    }
+    .free_palestine {
+      position: fixed;
+      bottom: 50px;
+      left: 5px;
+      width: 50px;
+      height: 50px;
+      background-image: url('./accets/img/free_palestine.jpeg');
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.5s ease;
+      z-index: 1000;
+    }
+
+    .free_palestine.clicked {
+      width: 200px;
+      height: 200px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      z-index: 10000;
+    }
+
+    .my_floating_photo {
       position: fixed;
       bottom: 50px;
       right: 5px;
@@ -384,7 +409,8 @@
       z-index: 1000;
       animation: randomMove 10s infinite alternate ease-in-out;
     }
-    .floating_photo.clicked {
+
+    .my_floating_photo.clicked {
       width: 200px;
       height: 200px;
       top: 50%;
@@ -393,12 +419,23 @@
       border-radius: 50%;
       z-index: 10000;
     }
+
     @keyframes randomMove {
-      0% {transform: translate(10px, 10px);}
-      25% {transform: translate(-100px, 50px);}
-      50% {transform: translate(80px, -100px);}
-      75% {transform: translate(-50px, -50px);}
-    100% {transform: translate(10px, 10px);}
+      0% {
+        transform: translate(10px, 10px);
+      }
+      25% {
+        transform: translate(-100px, 50px);
+      }
+      50% {
+        transform: translate(80px, -100px);
+      }
+      75% {
+        transform: translate(-50px, -50px);
+      }
+      100% {
+        transform: translate(10px, 10px);
+      }
     }
     footer {
       background: #222;
@@ -550,7 +587,8 @@
       <button type="submit" class="azkaralmoslem_button">Submit</button>
     </form>
   </div>
-  <div class="floating_photo"></div>
+  <div class="free_palestine"></div>
+  <div class="my_floating_photo"></div>
   <footer>
     <p>All rights reserved for <b>Mohammed Ghanam</b> &copy;</p>
   </footer>
@@ -588,18 +626,13 @@
         alert('Error sending message: ' + error.message);
       });
   });
-  const floatingPhoto = document.querySelector('.floating_photo');
-
-  floatingPhoto.addEventListener('click', () => {
-    if (floatingPhoto.classList.contains('clicked')) {
-      floatingPhoto.classList.remove('clicked');
-    } else {
-      floatingPhoto.classList.add('clicked');
-    }
-  });
-  document.addEventListener('DOMContentLoaded', function() {
-      var video = document.getElementById('arabic_song1');
-      video.preload = 'none';
+    const freePalestine = document.querySelector('.free_palestine');
+    freePalestine.addEventListener('click', () => {
+      freePalestine.classList.toggle('clicked');
+    });
+    const floatingPhoto = document.querySelector('.my_floating_photo');
+    floatingPhoto.addEventListener('click', () => {
+      floatingPhoto.classList.toggle('clicked');
     });
 </script>
 </body>
